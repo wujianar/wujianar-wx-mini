@@ -1,0 +1,22 @@
+<view class="container">
+    <canvas type="webgl" id="camera" class="camera" style="width: {{width}}px; height: {{height}}px"></canvas>
+    <canvas type="webgl" id="three" class="three" style="width: {{width}}px; height: {{height}}px"></canvas>
+    <view style="position:absolute;top:-1000px;left:-1000px" wx:if="{{videoUrl != ''}}">
+        <video id="video" src="{{videoUrl}}" loop="{{true}}" controls="{{false}}" autoplay="{{false}}" bindloadedmetadata="loadVideoMeta" binderror="loadVideoError" bindwaiting="loadVideoWaiting"></video>
+        <canvas type="2d" id="videoCanvas"></canvas>
+    </view>
+</view>
+<view class="controller">
+    <view class="welcome" wx:if="{{showWelcome}}">
+        <view class="title">WuJianAR微信小程序</view>
+        <view class="button-holder">
+            <button type="primary" class="search" bindtap="scan">识别体验</button>
+            <button type="primary" class="save" bindtap="save">保存识别图</button>
+        </view>
+        <view class="support">技术支持 www.wujianar.com</view>
+    </view>
+    <image class="back-icon" wx:if="{{!showWelcome}}" src="../images/back-icon.png" bind:tap="back"></image>
+    <view class="scan-wrap" wx:if="{{scanning}}">
+        <image class="scan-line" src="../images/scan-line.png" height="2px" />
+    </view>
+</view>

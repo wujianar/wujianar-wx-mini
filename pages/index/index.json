@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "webar": "../../components/webar/webar"
+  }
+}
